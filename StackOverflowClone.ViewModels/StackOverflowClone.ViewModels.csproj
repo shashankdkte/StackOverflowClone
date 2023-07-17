@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="AnswerViewModel.cs" />
     <Compile Include="CategoryViewModel.cs" />
+    <Compile Include="EditAnswerViewModel.cs" />
     <Compile Include="EditQuestionViewModel.cs" />
     <Compile Include="EditUserDetailsViewModel.cs" />
     <Compile Include="EditUserPasswordViewModel.cs" />
