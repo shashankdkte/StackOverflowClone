@@ -16,10 +16,10 @@ namespace StackOverflowClone.ServiceLayer
         void UpdateAnswer(EditAnswerViewModel avm);
         void UpdateAnswerVotesCount(int answerID, int userID, int value);
         void DeleteAnswer(int answerID);
-        List<AnswerViewModel> GetAnswers();
+        List<AnswerViewModel> GetAnswersByQuestionID(int questionID);
         AnswerViewModel GetAnswerByAnswerID(int answerID);
     }
-    public class AnswersService
+    public class AnswersService : IAnswerService
     {
         IAnswersRepository answersRepository;
         public AnswersService()
@@ -70,5 +70,7 @@ namespace StackOverflowClone.ServiceLayer
             }
             return avm;
         }
+
+       
     }
 }
