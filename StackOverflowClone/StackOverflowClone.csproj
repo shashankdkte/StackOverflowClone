@@ -145,6 +145,10 @@
       <Project>{9289a820-ce63-45cc-be12-b8c83898b606}</Project>
       <Name>StackOverflowClone.DomainModels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\StackOverflowClone.ViewModels\StackOverflowClone.ViewModels.csproj">
+      <Project>{ff6ec870-a721-4862-aa1e-ed94b7c2b46e}</Project>
+      <Name>StackOverflowClone.ViewModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
