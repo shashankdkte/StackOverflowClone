@@ -11,7 +11,7 @@ namespace StackOverflowClone.Repositories
     {
         void InsertCategory(Category category);
         void UpdateCategory(Category category);
-        void DeleteCategory(Category category);
+        void DeleteCategory(int categoryID);
         List<Category> GetCategories();
         List<Category> GetCategoryByCategoryID(int categoryID);
     }
@@ -21,9 +21,9 @@ namespace StackOverflowClone.Repositories
         public CategoriesRepository() { 
         db = new StackOverflowDbContext();
         }
-        public void DeleteCategory(Category category)
+        public void DeleteCategory(int categoryID)
         {
-            Category deleteCategory  = db.Categories.Where(temp => temp.CategoryID == category.CategoryID).FirstOrDefault();
+            Category deleteCategory  = db.Categories.Where(temp => temp.CategoryID == categoryID).FirstOrDefault();
             if(deleteCategory !=null)
             {
                 db.Categories.Remove(deleteCategory);
