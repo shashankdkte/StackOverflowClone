@@ -13,7 +13,7 @@ namespace StackOverflowClone.Repositories
         void InsertUser(User user);
         void UpdateUserDetails(User user);
         void UpdateUserPassword(User user);
-        void DeleteUser(User user);
+        void DeleteUser(int userID);
 
         List<User> GetUsers();
         List<User> GetUsersByEmailAndPassword(string email, string passwordHash);
@@ -29,9 +29,9 @@ namespace StackOverflowClone.Repositories
         {
             db = new StackOverflowDbContext();
         }
-        public void DeleteUser(User user)
+        public void DeleteUser(int userID)
         {
-            User deleteUser = db.Users.Where(temp => temp.UserID == user.UserID).FirstOrDefault();
+            User deleteUser = db.Users.Where(temp => temp.UserID == userID).FirstOrDefault();
             if(deleteUser != null)
             {
                 db.Users.Remove(deleteUser);
