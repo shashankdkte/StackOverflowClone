@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoryViewModel.cs" />
     <Compile Include="EditUserDetailsViewModel.cs" />
     <Compile Include="EditUserPasswordViewModel.cs" />
     <Compile Include="LoginViewModel.cs" />
