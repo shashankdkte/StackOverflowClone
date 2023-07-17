@@ -48,6 +48,10 @@
       <Project>{9289a820-ce63-45cc-be12-b8c83898b606}</Project>
       <Name>StackOverflowClone.DomainModels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\StackOverflowClone.Repositories\StackOverflowClone.Repositories.csproj">
+      <Project>{91264f65-057f-41ce-b382-507af6bb16bd}</Project>
+      <Name>StackOverflowClone.Repositories</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

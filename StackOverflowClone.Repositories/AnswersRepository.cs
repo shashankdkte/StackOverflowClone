@@ -74,7 +74,7 @@ namespace StackOverflowClone.Repositories
                 answer.VotesCount += value;
                 db.SaveChanges();
                 questionRespository.UpdateQuestionVotesCount(answer.QuestionID, value);
-               // votesRepository.UpdateVote(answerID, userID, value);
+                votesRepository.UpdateVote(answerID, userID, value);
             }
         }
     }
