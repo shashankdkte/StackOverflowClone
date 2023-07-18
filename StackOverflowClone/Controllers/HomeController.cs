@@ -21,5 +21,14 @@ namespace StackOverflowClone.Controllers
             List<QuestionViewModel> questions = questionService.GetQuestions().Take(10).ToList();
             return View(questions);
         }
+        public ActionResult About()
+        {
+            return View();
+        }
+        public ActionResult Contact()
+        {
+            return View();
+        }
+        
     }
 }
