@@ -45,7 +45,7 @@ namespace StackOverflowClone.Repositories
 
         public List<Answer> GetAnswersByQuestionID(int questionID)
         {
-            List<Answer> answers = db.Answers.Where(temp => temp.QuestionID == questionID).OrderByDescending(temp => temp.AnswerDate).ToList();
+            List<Answer> answers = db.Answers.Where(temp => temp.QuestionID == questionID).OrderByDescending(temp => temp.AnswerDateAndTime).ToList();
             return answers;
         }
 

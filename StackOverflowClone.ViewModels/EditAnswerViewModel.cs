@@ -14,7 +14,7 @@ namespace StackOverflowClone.ViewModels
         [Required]
         public string AnswerText { get; set; }
         [Required]
-        public DateTime AnswerDate { get; set; }
+        public DateTime AnswerDateAndTime { get; set; }
         [Required]
         public int UserID { get; set; }
         [Required]

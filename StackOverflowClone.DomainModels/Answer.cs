@@ -15,7 +15,7 @@ namespace StackOverflowClone.DomainModels
         public int AnswerID { get; set; }
         public string AnswerText { get; set; }
 
-        public DateTime AnswerDate { get; set; } = DateTime.Now;
+        public DateTime AnswerDateAndTime { get; set; } = DateTime.Now;
         public int UserID { get; set; }
 
         public int QuestionID { get; set; }
