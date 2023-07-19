@@ -67,7 +67,7 @@ namespace StackOverflowClone.ServiceLayer
 
         public UserViewModel GetUsersByEmailAndPassword(string email, string password)
         {
-            User user = usersRepository.GetUsersByEmailAndPassword(email,password).FirstOrDefault();
+            User user = usersRepository.GetUsersByEmailAndPassword(email,SHA256HashGenerator.GenerateHash(password)).FirstOrDefault();
             UserViewModel uvm = null;
             if (user != null)
             {

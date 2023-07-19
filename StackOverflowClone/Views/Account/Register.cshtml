@@ -77,14 +77,14 @@
 
     $("a[href='/account/register']").attr("id", "active");
 
-    $(document).on("submit", ".needs-validation", validate);
-    $(".needs-validation input").blur(validate);
-    function validate(event) {
-        if ($(".needs-validation")[0].checkValidity() == false || $(".email-exist").text() != "") {
-            event.preventDefault();
-        }
-        $(".needs-validation")[0].classList.add("was-validated");
-    }
+    //$(document).on("submit", ".needs-validation", validate);
+    //$(".needs-validation input").blur(validate);
+    //function validate(event) {
+    //    if ($(".needs-validation")[0].checkValidity() == false || $(".email-exist").text() != "") {
+    //        event.preventDefault();
+    //    }
+    //    $(".needs-validation")[0].classList.add("was-validated");
+    //}
 
     function escapeRegExp(str) {
         return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
