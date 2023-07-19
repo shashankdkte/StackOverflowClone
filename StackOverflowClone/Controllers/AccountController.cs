@@ -129,5 +129,35 @@ namespace StackOverflowClone.Controllers
                 return View(edvm);
             }
         }
+
+        public ActionResult ChangePassword()
+        {
+            int uid = Convert.ToInt32(Session["CurrentUserID"]);
+            UserViewModel uvm = this._userService.GetUsersByUserID((int)uid);
+            EditUserPasswordViewModel evpm = new EditUserPasswordViewModel()
+            { 
+                Email= uvm.Email,
+                Password="",
+                ConfirmPassword="",
+                UserID = uid,
+            };
+            return View(evpm);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangePassword(EditUserPasswordViewModel edvm)
+        {
+            if(ModelState.IsValid)
+            {
+                edvm.UserID = Convert.ToInt32(Session["CurrentUserID"]);
+                this._userService.UpdateUserPassword(edvm);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ModelState.AddModelError("x", "Invalid Data");
+                return View(edvm);
+            }
+        }
     }
 }
