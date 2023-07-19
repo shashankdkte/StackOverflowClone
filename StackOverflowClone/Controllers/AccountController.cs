@@ -90,5 +90,44 @@ namespace StackOverflowClone.Controllers
                 return View(lvm);
             }
         }
+
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult ChangeProfile()
+        {
+
+            int uid = Convert.ToInt32(Session["CurrentUserID"]);
+            UserViewModel uvm = this._userService.GetUsersByUserID(uid);
+            EditUserDetailsViewModel edvm = new EditUserDetailsViewModel()
+            {
+                Name = uvm.Name,
+                Email = uvm.Email,
+                Mobile = uvm.Mobile,
+                UserId = uid,
+            };
+            return View(edvm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangeProfile(EditUserDetailsViewModel edvm)
+        {
+            if(ModelState.IsValid)
+            {
+                edvm.UserId = Convert.ToInt32(Session["CurrentUserID"]);
+                this._userService.UpdateUserDetails(edvm);
+                Session["CurrentUserName"] = edvm.Name;
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ModelState.AddModelError("x", "Invalid data");
+                return View(edvm);
+            }
+        }
     }
 }

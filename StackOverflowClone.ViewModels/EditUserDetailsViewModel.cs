@@ -17,6 +17,6 @@ namespace StackOverflowClone.ViewModels
         [RegularExpression(@"^[a-zA-Z ]*$")]
         public string Name { get;set; }
         [Required]
-        public string MobileNumber { get; set; }
+        public string Mobile { get; set; }
     }
 }
