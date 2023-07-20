@@ -20,6 +20,7 @@ namespace StackOverflowClone.Controllers
             this.categoriesService = categoriesService;
         }
         // GET: Questions
+        [Route("questions/view/{id}")]
         public ActionResult View(int id)
         {
             this.questionService.UpdateQuestionViewsCount(id, 1);
@@ -47,9 +48,6 @@ namespace StackOverflowClone.Controllers
                 return View("View",qvm);
             }
         }
-        public ActionResult Price()
-        {
-            return View();
-        }
+      
     }
 }

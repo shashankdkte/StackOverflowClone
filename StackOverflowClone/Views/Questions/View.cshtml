@@ -161,3 +161,54 @@
 
     </div>
 </div>
+<script>
+        $(".btnUpVote").click(function ()
+    {
+        var UpBtn = $(this);
+        var DownBtn = UpBtn.parent().find(".btnDownVote");
+        if (UpBtn.attr("src") == "/Images/up-empty.png")
+        {
+            var value;
+            if (UpBtn.attr("src") == "/Images/up-empty.png" && DownBtn.attr("src") == "/Images/down-empty.png")
+                value = 1;
+            else
+                value = 2;
+
+            $.ajax({
+                url: "/api/questions?answerid=" + UpBtn.attr("data-answerid") + "&value=" + value + "&UserID=@Session["CurrentUserID"]",
+                type: "POST",
+                success: function ()
+                {
+                    UpBtn.parent().find(".votescount").text(parseInt(UpBtn.parent().find(".votescount").text()) + value);
+                    UpBtn.attr("src", "/Images/up-color.png");
+                    DownBtn.attr("src", "/Images/down-empty.png");
+                }
+            });
+        }
+    });
+
+      $(".btnDownVote").click(function ()
+    {
+        var DownBtn = $(this);
+        var UpBtn = DownBtn.parent().find(".btnUpVote");
+        if (DownBtn.attr("src") == "/Images/down-empty.png")
+        {
+            var value;
+            if (UpBtn.attr("src") == "/Images/up-empty.png" && DownBtn.attr("src") == "/Images/down-empty.png")
+                value = -1;
+            else
+                value = -2;
+
+            $.ajax({
+                url: "/api/questions?answerid=" + UpBtn.attr("data-answerid") + "&value=" + value + "&UserID=@Session["CurrentUserID"]",
+                type: "POST",
+                success: function ()
+                {
+                    DownBtn.parent().find(".votescount").text(parseInt(DownBtn.parent().find(".votescount").text()) + value);
+                    DownBtn.attr("src", "/Images/down-color.png");
+                    UpBtn.attr("src", "/Images/up-empty.png");
+                }
+            });
+        }
+    });
+</script>
