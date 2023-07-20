@@ -4,12 +4,12 @@
 }
 
 <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12" style="padding:2%">
         <h1>Change Profile</h1>
         <form novalidate="novalidate" action="/account/changeprofile" method="post"
               class="needs-validation">
             @Html.AntiForgeryToken()
-            <div class="form-row">
+            <div class="form-row mt-2">
                 <div class="form-group col-sm-12">
                     <label for="txtName">Name</label>
                     <input type="text" class="form-control" id="txtName" 
@@ -23,8 +23,8 @@
                     </div>
                 </div>
             </div>
-            <div class="form-row">
-                <div class="form-group col-sm-6">
+            <div class="form-row mt-2">
+                <div class="form-group col-sm-6 mt-2">
                     <label for="txtEmail">Email</label>
                     @Html.HiddenFor(temp => temp.Email)
                     <span>@Model.Email</span>

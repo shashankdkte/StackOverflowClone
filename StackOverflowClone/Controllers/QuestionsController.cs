@@ -64,6 +64,31 @@ namespace StackOverflowClone.Controllers
             }
         }
 
-        
+        public ActionResult Create()
+        {
+            List<CategoryViewModel> categories = this.categoriesService.GetCategories();
+            ViewBag.categories = categories;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(NewQuestionViewModel question)
+        {
+            if(ModelState.IsValid)
+            {
+                question.AnswersCount = 0;
+                question.ViewsCount = 0;
+                question.VotesCount = 0;
+                question.QuestionDateAndTime = DateTime.Now;
+                question.UserID = Convert.ToInt32(Session["CurrentUserID"]);
+                this.questionService.InsertQuestion(question);
+                return RedirectToAction("Questions", "Home");
+            }
+            else
+            {
+                ModelState.AddModelError("x", "Invalid data");
+                return View();
+            }
+        }
     }
 }

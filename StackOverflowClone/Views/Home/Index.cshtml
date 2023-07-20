@@ -3,7 +3,7 @@
     ViewBag.Title = "Home";
 }
 <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12" style="padding:2%">
         <div class="jumbotron">
             <h1>Learn, Shared, Build!</h1>
             <h3>Each month, over 50 million developers come to Stack Overflow to learn, share their knowledge, and build their careers.</h3>
@@ -13,7 +13,7 @@
 </div>
 
 <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12" style="padding:2%">
         <table class="table">
             @foreach (var item in Model)
             {
@@ -26,9 +26,7 @@
         }
     </div>
 </div>
-<button type="button" class="btn btn-primary">
-    Notifications <span class="badge badge-light">4</span>
-</button>
+
 <script>
     $("a[href='/home/index']").attr("id", "active");
 </script>
