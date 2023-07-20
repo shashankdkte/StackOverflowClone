@@ -41,5 +41,15 @@ namespace StackOverflowClone.Controllers
             List<QuestionViewModel> questions = this.questionService.GetQuestions();
             return View(questions);
         }
+
+        public ActionResult Search(string str)
+        {
+            List<QuestionViewModel> questions = this.questionService.GetQuestions().
+                Where(temp => temp.QuestionName.ToLower().Contains(str.ToLower())
+                 ||
+                 temp.Category.CategoryName.ToLower().Contains(str.ToLower())).ToList();
+            ViewBag.str = str;
+            return View(questions);
+        }
     }
 }
