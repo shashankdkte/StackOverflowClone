@@ -36,5 +36,10 @@ namespace StackOverflowClone.Controllers
             List<CategoryViewModel> categories = this.categoriesService.GetCategories();
             return View(categories);
         }
+        public ActionResult Questions()
+        {
+            List<QuestionViewModel> questions = this.questionService.GetQuestions();
+            return View(questions);
+        }
     }
 }
