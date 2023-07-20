@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using StackOverflowClone.CustomFilters;
 
 namespace StackOverflowClone.Controllers
 {
@@ -96,7 +97,7 @@ namespace StackOverflowClone.Controllers
             Session.Abandon();
             return RedirectToAction("Index", "Home");
         }
-
+        [UseAuthorizationFilterAttribute]
         public ActionResult ChangeProfile()
         {
 
@@ -114,6 +115,7 @@ namespace StackOverflowClone.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [UseAuthorizationFilterAttribute]
         public ActionResult ChangeProfile(EditUserDetailsViewModel edvm)
         {
             if(ModelState.IsValid)
