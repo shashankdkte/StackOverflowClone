@@ -212,3 +212,10 @@
         }
     });
 </script>
+<script>
+    $(".editbutton").click(function () {
+        $(this).parent().find(".needs-validation").show();
+        $(this).hide();
+        $(this).parent().find(".answer").hide();
+    });
+</script>

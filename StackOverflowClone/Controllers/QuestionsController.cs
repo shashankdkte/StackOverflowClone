@@ -48,6 +48,22 @@ namespace StackOverflowClone.Controllers
                 return View("View",qvm);
             }
         }
-      
+        
+        public ActionResult EditAnswer(EditAnswerViewModel answer)
+        {
+            if(ModelState.IsValid)
+            {
+                answer.UserID = Convert.ToInt32(Session["CurrentUserID"]);
+                this.answerService.UpdateAnswer(answer);
+                return RedirectToAction("View", new {id = answer.QuestionID});
+            }
+            else
+            {
+                ModelState.AddModelError("x", "Invalid Data");
+                return RedirectToAction("View",new {id = answer.QuestionID});
+            }
+        }
+
+        
     }
 }

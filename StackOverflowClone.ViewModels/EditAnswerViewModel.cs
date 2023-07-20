@@ -21,7 +21,7 @@ namespace StackOverflowClone.ViewModels
         public int QuestionID { get; set; }
         [Required]
         public int VotesCount { get; set; }
-        [Required]
+        
         public virtual QuestionViewModel Question { get; set; }
     }
 }
