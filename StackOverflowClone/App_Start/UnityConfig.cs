@@ -15,6 +15,7 @@ namespace StackOverflowClone
             container.RegisterType<IQuestionService, QuestionsService>();
             container.RegisterType<IUserService, UsersService>();
             container.RegisterType<ICategoriesService, CategoriesService>();
+            container.RegisterType<IAnswerService, AnswersService>();
             // register all your components with the container here
             // it is NOT necessary to register your controllers
 
