@@ -11,9 +11,11 @@ namespace StackOverflowClone.Controllers
     public class HomeController : Controller
     {
         IQuestionService questionService;
-        public HomeController(IQuestionService questionService)
+        ICategoriesService categoriesService;
+        public HomeController(IQuestionService questionService,ICategoriesService categoriesService)
         {
             this.questionService = questionService;
+            this.categoriesService = categoriesService;
         }
         // GET: Home
         public ActionResult Index()
@@ -29,6 +31,10 @@ namespace StackOverflowClone.Controllers
         {
             return View();
         }
-        
+        public ActionResult Categories()
+        {
+            List<CategoryViewModel> categories = this.categoriesService.GetCategories();
+            return View(categories);
+        }
     }
 }

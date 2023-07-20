@@ -14,6 +14,7 @@ namespace StackOverflowClone
 			var container = new UnityContainer();
             container.RegisterType<IQuestionService, QuestionsService>();
             container.RegisterType<IUserService, UsersService>();
+            container.RegisterType<ICategoriesService, CategoriesService>();
             // register all your components with the container here
             // it is NOT necessary to register your controllers
 
