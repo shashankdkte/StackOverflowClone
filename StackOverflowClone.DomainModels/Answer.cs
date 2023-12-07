@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace StackOverflowClone.DomainModels
 {
+    [Table("Answers", Schema = "STACKOVERFLOW")]
     public class Answer
     {
         [Key]

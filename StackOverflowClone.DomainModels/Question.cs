@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StackOverflowClone.DomainModels
 {
+    [Table("Questions", Schema = "STACKOVERFLOW")]
     public class Question
     {
         [Key]
